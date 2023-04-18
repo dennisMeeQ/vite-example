@@ -1,0 +1,96 @@
+{
+  "root": true,
+  "extends": [
+    "eslint:recommended",
+    "plugin:import/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": [
+    "react",
+    "react-hooks",
+    "jsx-a11y",
+    "@typescript-eslint",
+    "import",
+    "simple-import-sort"
+  ],
+  "rules": {
+    "import/first": "warn",
+    "import/newline-after-import": "warn",
+    "import/no-duplicates": "error",
+    "import/no-named-as-default-member": "off",
+    "import/prefer-default-export": "off",
+    "simple-import-sort/imports": "warn",
+    "simple-import-sort/exports": "warn",
+    "no-console": "off",
+    "no-empty-function": "off",
+    "@typescript-eslint/no-empty-function": "off",
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": "off",
+    "no-plusplus": "off",
+    "arrow-body-style": "off",
+    "react/display-name": "off",
+    "react/jsx-boolean-value": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-sort-props": [
+      "warn",
+      {
+        "callbacksLast": true,
+        "shorthandFirst": true,
+        "ignoreCase": true,
+        "reservedFirst": true,
+        "noSortAlphabetically": true
+      }
+    ],
+    "newline-before-return": "warn"
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "ecmaVersion": 2021,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true
+      }
+    }
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/__tests__/**/*.[jt]s?(x)",
+        "**/?(*.)+(spec|test).[jt]s?(x)"
+      ],
+      "extends": ["plugin:testing-library/react"],
+      "plugins": ["testing-library"],
+      "rules": {
+        "testing-library/await-async-query": "error",
+        "testing-library/no-await-sync-query": "error",
+        "testing-library/no-debugging-utils": "warn",
+        "testing-library/no-dom-import": "off"
+      }
+    }
+  ]
+}
